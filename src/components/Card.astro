@@ -1,0 +1,11 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  snippet: CollectionEntry<'snippet'>;
+}
+
+const { snippet } = Astro.props;
+const { Content, headings } = await snippet.render();
+---
+
+<Content />

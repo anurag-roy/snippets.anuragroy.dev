@@ -1,5 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
 import '../index.css';
+import Card from '../components/Card.astro';
+
+const allSnippets = await getCollection('snippet');
 ---
 
 <html lang="en" class="h-full">
@@ -11,6 +15,6 @@ import '../index.css';
     <title>Snippets</title>
   </head>
   <body class="h-full">
-    <h1 class="font-bold text-violet-600">snippets.anuragroy.dev</h1>
+    {allSnippets.map((s) => <Card snippet={s} />)}
   </body>
 </html>
