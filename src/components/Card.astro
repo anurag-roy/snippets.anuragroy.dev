@@ -8,4 +8,8 @@ const { snippet } = Astro.props;
 const { Content, headings } = await snippet.render();
 ---
 
-<Content />
+<div
+  class="grid-item w-96 max-h-[500px] mb-4 overflow-clip bg-stone-800 p-4 rounded-xl border border-stone-700 card-shadow"
+>
+  <Content />
+</div>
