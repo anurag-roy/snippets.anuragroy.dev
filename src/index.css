@@ -7,6 +7,60 @@
   src: url('/fonts/Inter.var.woff2') format('woff2');
 }
 
-.card-shadow {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+:root {
+  /* Light Theme */
+  --astro-code-color-text: #24292f;
+  --astro-code-color-background: #f6f8fa;
+  --astro-code-token-constant: #0550ae;
+  --astro-code-token-string: #0a3069;
+  --astro-code-token-comment: #6e7781;
+  --astro-code-token-keyword: #cf222e;
+  --astro-code-token-parameter: #116329;
+  --astro-code-token-function: #8250df;
+  --astro-code-token-string-expression: #0a3069;
+  --astro-code-token-punctuation: #212121;
+  --astro-code-token-link: #0a3069;
+}
+
+.dark {
+  /* Dark Theme */
+  --astro-code-color-text: #c9d1d9;
+  --astro-code-color-background: #161b22;
+  --astro-code-token-constant: #79c0ff;
+  --astro-code-token-string: #a5d6ff;
+  --astro-code-token-comment: #8b949e;
+  --astro-code-token-keyword: #ff7b72;
+  --astro-code-token-parameter: #7ee787;
+  --astro-code-token-function: #d2a8ff;
+  --astro-code-token-string-expression: #a5d6ff;
+  --astro-code-token-punctuation: #212121;
+  --astro-code-token-link: #a5d6ff;
+}
+
+pre {
+  background-color: var(--shiki-color-background);
+  overflow: hidden !important;
+}
+
+[data-columns] {
+  display: grid;
+  column-gap: 16px;
+}
+
+[data-columns='2'] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+[data-columns='3'] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+[data-columns='4'] {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }

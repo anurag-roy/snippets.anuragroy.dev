@@ -1,5 +1,5 @@
 ---
-title: 'Get formatted date with ordinals from date string'
+title: 'Get formatted date with ordinals'
 tags: ['TypeScript', 'Intl', 'Date', 'Ordinal']
 ---
 

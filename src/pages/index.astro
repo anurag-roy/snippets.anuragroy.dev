@@ -14,18 +14,22 @@ const allSnippets = await getCollection('snippet');
     <meta name="generator" content={Astro.generator} />
     <title>Snippets</title>
   </head>
-  <body class="h-full bg-stone-900 py-4 px-8">
-    <div id="grid">
+  <body class="h-full bg-zinc-100 py-4 px-8">
+    <div id="grid" class="max-w-[96rem] mx-auto py-8">
       {allSnippets.map((s) => <Card snippet={s} />)}
     </div>
   </body>
   <script>
-    import Masonry from 'masonry-layout';
+    import Columns from 'columns.js';
 
-    const grid = document.getElementById('grid');
-    const masonry = new Masonry(grid, {
-      itemSelector: '.grid-item',
-      columnWidth: 400,
+    let grid = new Columns(document.getElementById('grid'), {
+      columns: 1,
+      breakpoints: {
+        768: 2,
+        1280: 3,
+      },
+      column_class: 'grid-col',
+      algorithm: 'greedy',
     });
   </script>
 </html>

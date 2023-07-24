@@ -1,5 +1,5 @@
 ---
-title: 'Dynamic GitHub Theme in Shiki using variables'
+title: 'Dynamic GitHub Theme in Shiki'
 tags: ['CSS', 'GitHub Theme', 'Shiki', 'Markdown']
 ---
 

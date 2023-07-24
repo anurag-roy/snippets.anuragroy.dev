@@ -5,11 +5,30 @@ interface Props {
 }
 
 const { snippet } = Astro.props;
-const { Content, headings } = await snippet.render();
+const { Content } = await snippet.render();
+
+const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
 ---
 
 <div
-  class="grid-item w-96 max-h-[500px] mb-4 overflow-clip bg-stone-800 p-4 rounded-xl border border-stone-700 card-shadow"
+  class="overflow-hidden p-4 rounded-xl bg-white ring-1 ring-zinc-200 relative"
+  style={`max-height: ${maxHeight}px`}
 >
-  <Content />
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"
+  >
+  </div>
+  <div class="prose prose-pre:rounded-xl">
+    <h3>{snippet.data.title}</h3>
+    <div class="flex gap-2 flex-wrap">
+      {
+        snippet.data.tags.map((t) => (
+          <span class="bg-sky-50 text-sky-700 ring-1 ring-sky-100 text-xs font-semibold px-3 py-1 rounded-full">
+            {t}
+          </span>
+        ))
+      }
+    </div>
+    <Content />
+  </div>
 </div>

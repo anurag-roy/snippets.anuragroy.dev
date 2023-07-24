@@ -1,7 +1,9 @@
 ---
-title: 'Display prices in INR with Indian Numeral style commas'
+title: 'Display prices in INR'
 tags: ['TypeScript', 'Intl', 'Price', 'INR']
 ---
+
+Display prices with the Rupee symbol, Indian numeric system commas and 2 decimal digits:
 
 ```typescript
 const displayInr = (amount: number) =>
