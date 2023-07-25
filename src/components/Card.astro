@@ -1,5 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import Chip from './Chip.astro';
+
 interface Props {
   snippet: CollectionEntry<'snippet'>;
 }
@@ -21,13 +23,7 @@ const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
   <div class="prose prose-pre:rounded-xl">
     <h3>{snippet.data.title}</h3>
     <div class="flex gap-2 flex-wrap">
-      {
-        snippet.data.tags.map((t) => (
-          <span class="bg-sky-50 text-sky-700 ring-1 ring-sky-100 text-xs font-semibold px-3 py-1 rounded-full">
-            {t}
-          </span>
-        ))
-      }
+      {snippet.data.tags.map((t) => <Chip text={t} />)}
     </div>
     <Content />
   </div>

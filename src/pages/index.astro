@@ -19,17 +19,22 @@ const allSnippets = await getCollection('snippet');
       {allSnippets.map((s) => <Card snippet={s} />)}
     </div>
   </body>
-  <script>
-    import Columns from 'columns.js';
-
-    let grid = new Columns(document.getElementById('grid'), {
-      columns: 1,
-      breakpoints: {
-        768: 2,
-        1280: 3,
-      },
-      column_class: 'grid-col',
-      algorithm: 'greedy',
-    });
-  </script>
 </html>
+
+<script>
+  import Columns from 'columns.js';
+
+  let grid = new Columns(document.getElementById('grid')!, {
+    columns: 1,
+    breakpoints: {
+      768: 2,
+      1280: 3,
+    },
+    column_class: 'grid-col',
+    algorithm: 'greedy',
+  });
+
+  window.addEventListener('resize', () => {
+    grid.render();
+  });
+</script>
