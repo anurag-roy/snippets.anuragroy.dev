@@ -13,14 +13,14 @@ const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
 ---
 
 <div
-  class="overflow-hidden p-4 rounded-xl bg-white ring-1 ring-zinc-200 relative"
+  class="overflow-clip p-4 rounded-xl bg-white dark:bg-zinc-900 ring-1 ring-zinc-200 dark:ring-zinc-800 relative"
   style={`max-height: ${maxHeight}px`}
 >
   <div
-    class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white"
+    class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-zinc-900"
   >
   </div>
-  <div class="prose prose-pre:rounded-xl">
+  <div class="prose dark:prose-invert prose-pre:rounded-xl">
     <h3>{snippet.data.title}</h3>
     <div class="flex gap-2 flex-wrap">
       {snippet.data.tags.map((t) => <Chip text={t} />)}

@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import '../index.css';
 import Card from '../components/Card.astro';
+import Logo from '../components/Logo.astro';
+import ThemeSwitcher from '../components/ThemeSwitcher.astro';
 
 const allSnippets = await getCollection('snippet');
 ---
@@ -13,11 +15,35 @@ const allSnippets = await getCollection('snippet');
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Snippets</title>
+    <script is:inline>
+      setTheme = () => {
+        let theme = 'light';
+        if (localStorage && localStorage.getItem('theme-preference')) {
+          theme = localStorage.getItem('theme-preference');
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        }
+        if (theme === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      };
+      setTheme();
+    </script>
   </head>
-  <body class="h-full bg-zinc-100 py-4 px-8">
-    <div id="grid" class="max-w-[96rem] mx-auto py-8">
+  <body class="h-full bg-zinc-100 dark:bg-zinc-950">
+    <header
+      class="bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 sticky top-0 z-50"
+    >
+      <div class="max-w-[96rem] mx-auto flex items-center justify-between py-4">
+        <Logo />
+        <ThemeSwitcher />
+      </div>
+    </header>
+    <main id="grid" class="max-w-[96rem] mx-auto py-8">
       {allSnippets.map((s) => <Card snippet={s} />)}
-    </div>
+    </main>
   </body>
 </html>
 

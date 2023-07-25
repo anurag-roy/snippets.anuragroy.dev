@@ -20,6 +20,7 @@
   --astro-code-token-string-expression: #0a3069;
   --astro-code-token-punctuation: #212121;
   --astro-code-token-link: #0a3069;
+  --palette: --light;
 }
 
 .dark {
@@ -35,11 +36,16 @@
   --astro-code-token-string-expression: #a5d6ff;
   --astro-code-token-punctuation: #212121;
   --astro-code-token-link: #a5d6ff;
+  --palette: --dark;
+}
+
+* {
+  @apply outline-pink-600 dark:outline-yellow-400;
 }
 
 pre {
   background-color: var(--shiki-color-background);
-  overflow: hidden !important;
+  overflow: clip !important;
 }
 
 [data-columns] {
