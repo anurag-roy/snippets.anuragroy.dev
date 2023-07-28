@@ -32,17 +32,19 @@ const allSnippets = await getCollection('snippet');
       setTheme();
     </script>
   </head>
-  <body class="h-full bg-zinc-100 dark:bg-zinc-950">
+  <body class="h-full grid grid-rows-[auto,1fr] bg-zinc-100 dark:bg-zinc-950">
     <header
-      class="bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 sticky top-0 z-50"
+      class="px-4 bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
     >
       <div class="max-w-[96rem] mx-auto flex items-center justify-between py-4">
         <Logo />
         <ThemeSwitcher />
       </div>
     </header>
-    <main id="grid" class="max-w-[96rem] mx-auto py-8">
-      {allSnippets.map((s) => <Card snippet={s} />)}
+    <main class="overflow-y-auto">
+      <div id="grid" class="max-w-[96rem] mx-auto px-4 py-8">
+        {allSnippets.map((s) => <Card snippet={s} />)}
+      </div>
     </main>
   </body>
 </html>
