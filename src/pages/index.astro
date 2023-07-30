@@ -49,6 +49,37 @@ const allSnippets = await getCollection('snippet');
   </body>
 </html>
 
+<style is:global>
+  pre {
+    overflow: clip !important;
+  }
+
+  .grid-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+</style>
+
+<style>
+  [data-columns] {
+    display: grid;
+    column-gap: 16px;
+  }
+
+  [data-columns='2'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  [data-columns='3'] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  [data-columns='4'] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+</style>
+
 <script>
   import Columns from 'columns.js';
 

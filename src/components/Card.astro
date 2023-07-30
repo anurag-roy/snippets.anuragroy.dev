@@ -32,8 +32,22 @@ const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
     >Click to copy
   </div>
   <div
-    class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-zinc-900"
+    class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-zinc-900 grid"
   >
+    <a
+      href={`/${snippet.slug}`}
+      class="mt-auto flex items-center justify-center gap-1 text-pink-800 dark:text-yellow-200 py-2 font-bold text-sm z-20 hover:underline underline-offset-2 decoration-2"
+      >View Snippet<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        ><path
+          fill="currentColor"
+          d="m16 8.4l-8.875 8.9q-.3.3-.713.3t-.712-.3q-.3-.3-.3-.713t.3-.712L14.6 7H7q-.425 0-.713-.288T6 6q0-.425.288-.713T7 5h10q.425 0 .713.288T18 6v10q0 .425-.288.713T17 17q-.425 0-.713-.288T16 16V8.4Z"
+        ></path></svg
+      ></a
+    >
   </div>
   <div class="prose dark:prose-invert prose-pre:rounded-xl">
     <h3>{snippet.data.title}</h3>
@@ -51,9 +65,13 @@ const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
   clickTargets.forEach((target) => {
     target.addEventListener('click', async () => {
       const code = target.parentElement!.querySelector('pre')?.innerText || '';
-
       try {
         await navigator.clipboard.writeText(code);
+        const oldHtml = target.innerHTML;
+        target.innerHTML = 'Copied!';
+        setTimeout(() => {
+          target.innerHTML = oldHtml;
+        }, 2000);
       } catch (error) {
         alert('Could not copy to your clipboard');
       }
