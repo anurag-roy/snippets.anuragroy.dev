@@ -36,7 +36,7 @@ const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
   >
     <a
       href={`/${snippet.slug}`}
-      class="mt-auto flex items-center justify-center gap-1 text-pink-800 dark:text-yellow-200 py-2 font-bold text-sm z-20 hover:underline underline-offset-2 decoration-2"
+      class="mt-auto hidden group-hover:flex items-center justify-center gap-1 text-pink-800 dark:text-yellow-200 py-3 font-bold text-sm z-20 hover:underline underline-offset-2 decoration-2"
       >View Snippet<svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -44,7 +44,7 @@ const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
         viewBox="0 0 24 24"
         ><path
           fill="currentColor"
-          d="m16 8.4l-8.875 8.9q-.3.3-.713.3t-.712-.3q-.3-.3-.3-.713t.3-.712L14.6 7H7q-.425 0-.713-.288T6 6q0-.425.288-.713T7 5h10q.425 0 .713.288T18 6v10q0 .425-.288.713T17 17q-.425 0-.713-.288T16 16V8.4Z"
+          d="M13.3 17.275q-.3-.3-.288-.725t.313-.725L16.15 13H5q-.425 0-.713-.288T4 12q0-.425.288-.713T5 11h11.15L13.3 8.15q-.3-.3-.3-.713t.3-.712q.3-.3.713-.3t.712.3L19.3 11.3q.15.15.213.325t.062.375q0 .2-.063.375t-.212.325l-4.6 4.6q-.275.275-.687.275t-.713-.3Z"
         ></path></svg
       ></a
     >
@@ -60,7 +60,7 @@ const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
 
 <script>
   const clickTargets = document.querySelectorAll<HTMLDivElement>(
-    '[data-click-target]'
+    '[data-click-target]',
   );
   clickTargets.forEach((target) => {
     target.addEventListener('click', async () => {

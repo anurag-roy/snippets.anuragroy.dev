@@ -1,20 +1,4 @@
-<a href="/" class="logo text-4xl">Snippets</a>
-
-<style is:global>
-  @import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
-
-  @font-palette-values --dark {
-    font-family: Nabla;
-    base-palette: 0;
-  }
-
-  @font-palette-values --light {
-    font-family: Nabla;
-    base-palette: 1;
-  }
-
-  .logo {
-    font-family: 'Nabla';
-    font-palette: var(--palette);
-  }
-</style>
+<a href="/" aria-label="Home">
+  <img src="/images/logo-light.webp" class="block dark:hidden h-14 -my-2" />
+  <img src="/images/logo-dark.webp" class="hidden dark:block h-14 -my-2" />
+</a>
