@@ -3,6 +3,8 @@ title: 'Get formatted date with ordinals'
 tags: ['TypeScript', 'Intl', 'Date', 'Ordinal']
 ---
 
+Get date formatted with ordinals (st, nd, rd, th, etc) using JavaScript's `Intl`.
+
 ```typescript
 const getFormattedDate = (dateString: string, locale = 'en-IN') => {
   const ordinalMap: Partial<Record<Intl.LDMLPluralRule, string>> = {
