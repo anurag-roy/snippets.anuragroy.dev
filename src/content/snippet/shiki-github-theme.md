@@ -17,7 +17,7 @@ Dynamically switch between GitHub Light and Dark theme for code highlighting whe
   --shiki-token-parameter: #116329;
   --shiki-token-function: #8250df;
   --shiki-token-string-expression: #0a3069;
-  --shiki-token-punctuation: #212121;
+  --shiki-token-punctuation: #24292f;
   --shiki-token-link: #0a3069;
 }
 
@@ -32,7 +32,7 @@ Dynamically switch between GitHub Light and Dark theme for code highlighting whe
   --shiki-token-parameter: #7ee787;
   --shiki-token-function: #d2a8ff;
   --shiki-token-string-expression: #a5d6ff;
-  --shiki-token-punctuation: #212121;
+  --shiki-token-punctuation: #c9d1d9;
   --shiki-token-link: #a5d6ff;
 }
 

@@ -18,7 +18,7 @@
   --astro-code-token-parameter: #116329;
   --astro-code-token-function: #8250df;
   --astro-code-token-string-expression: #0a3069;
-  --astro-code-token-punctuation: #212121;
+  --astro-code-token-punctuation: #24292f;
   --astro-code-token-link: #0a3069;
 }
 
@@ -33,7 +33,7 @@
   --astro-code-token-parameter: #7ee787;
   --astro-code-token-function: #d2a8ff;
   --astro-code-token-string-expression: #a5d6ff;
-  --astro-code-token-punctuation: #212121;
+  --astro-code-token-punctuation: #c9d1d9;
   --astro-code-token-link: #a5d6ff;
 }
 
