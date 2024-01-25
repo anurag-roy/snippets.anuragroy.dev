@@ -23,6 +23,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   /* Dark Theme */
   --astro-code-color-text: #c9d1d9;
   --astro-code-color-background: #161b22;

@@ -1,5 +1,5 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
+import { type CollectionEntry, getCollection } from 'astro:content';
 import '../index.css';
 import Chip from '../components/Chip.astro';
 import Logo from '../components/Logo.astro';
@@ -29,7 +29,7 @@ const { Content } = await entry.render();
     <meta name="generator" content={Astro.generator} />
     <title>{entry.data.title}</title>
     <script is:inline>
-      setTheme = () => {
+      window.setTheme = () => {
         let theme = 'light';
         if (localStorage && localStorage.getItem('theme-preference')) {
           theme = localStorage.getItem('theme-preference');
@@ -42,24 +42,24 @@ const { Content } = await entry.render();
           document.documentElement.classList.add('dark');
         }
       };
-      setTheme();
+      window.setTheme();
     </script>
   </head>
-  <body class="h-full grid grid-rows-[auto,1fr] bg-zinc-100 dark:bg-zinc-950">
+  <body class="grid h-full grid-rows-[auto,1fr] bg-zinc-100 dark:bg-zinc-950">
     <header
-      class="px-4 bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
+      class="border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-900"
     >
-      <div class="max-w-[96rem] mx-auto flex items-center justify-between py-4">
+      <div class="mx-auto flex max-w-[96rem] items-center justify-between py-4">
         <Logo />
         <ThemeSwitcher />
       </div>
     </header>
     <main class="w-full overflow-y-auto p-4 py-8">
       <article
-        class="mx-auto prose prose-pre:relative lg:prose-lg dark:prose-invert"
+        class="prose mx-auto max-w-3xl dark:prose-invert prose-pre:relative"
       >
         <h1>{entry.data.title}</h1>
-        <div class="flex gap-2 flex-wrap">
+        <div class="flex flex-wrap gap-2">
           {entry.data.tags.map((t) => <Chip text={t} />)}
         </div>
         <hr />

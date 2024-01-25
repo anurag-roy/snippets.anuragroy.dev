@@ -13,12 +13,12 @@ const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
 ---
 
 <div
-  class="overflow-clip p-4 rounded-xl bg-white dark:bg-zinc-900 ring-1 ring-zinc-200 dark:ring-zinc-800 relative group"
+  class="group relative overflow-clip rounded-xl bg-white p-4 ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
   style={`max-height: ${maxHeight}px`}
 >
   <div
     data-click-target
-    class="hidden absolute inset-0 group-hover:grid place-items-center place-content-center gap-2 bg-gradient-to-b from-transparent via-pink-100/90 dark:via-yellow-950/90 to-transparent z-10 font-bold text-sm text-pink-800 dark:text-yellow-200"
+    class="absolute inset-0 z-10 hidden place-content-center place-items-center gap-2 bg-gradient-to-b from-transparent via-pink-100/90 to-transparent text-sm font-bold text-pink-800 group-hover:grid dark:via-yellow-950/90 dark:text-yellow-200"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -32,11 +32,11 @@ const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
     >Click to copy
   </div>
   <div
-    class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white dark:to-zinc-900 grid"
+    class="absolute inset-0 grid bg-gradient-to-b from-transparent via-transparent to-white dark:to-zinc-900"
   >
     <a
       href={`/${snippet.slug}`}
-      class="mt-auto hidden group-hover:flex items-center justify-center gap-1 text-pink-800 dark:text-yellow-200 py-3 font-bold text-sm z-20 hover:underline underline-offset-2 decoration-2"
+      class="z-20 mt-auto hidden items-center justify-center gap-1 py-3 text-sm font-bold text-pink-800 decoration-2 underline-offset-2 hover:underline group-hover:flex dark:text-yellow-200"
       >View Snippet<svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -51,7 +51,7 @@ const maxHeight = Math.floor(Math.random() * (750 - 400)) + 400;
   </div>
   <div class="prose dark:prose-invert prose-pre:rounded-xl">
     <h3>{snippet.data.title}</h3>
-    <div class="flex gap-2 flex-wrap">
+    <div class="flex flex-wrap gap-2">
       {snippet.data.tags.map((t) => <Chip text={t} />)}
     </div>
     <Content />

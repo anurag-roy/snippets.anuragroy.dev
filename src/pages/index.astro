@@ -15,34 +15,35 @@ const allSnippets = await getCollection('snippet');
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Snippets</title>
-    <script is:inline>
-      setTheme = () => {
-        let theme = 'light';
-        if (localStorage && localStorage.getItem('theme-preference')) {
-          theme = localStorage.getItem('theme-preference');
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          theme = 'dark';
+    <script>
+      declare global {
+        interface Window {
+          setTheme: () => void;
         }
-        if (theme === 'light') {
-          document.documentElement.classList.remove('dark');
-        } else {
-          document.documentElement.classList.add('dark');
-        }
+      }
+
+      window.setTheme = () => {
+        const theme =
+          localStorage.getItem('theme-preference') ||
+          window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+        document.documentElement.classList.toggle('dark', theme === 'dark');
       };
-      setTheme();
+      window.setTheme();
     </script>
   </head>
-  <body class="h-full grid grid-rows-[auto,1fr] bg-zinc-100 dark:bg-zinc-950">
+  <body class="grid h-full grid-rows-[auto,1fr] bg-zinc-100 dark:bg-zinc-950">
     <header
-      class="px-4 bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800"
+      class="border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-900"
     >
-      <div class="max-w-[96rem] mx-auto flex items-center justify-between py-4">
+      <div class="mx-auto flex max-w-[96rem] items-center justify-between py-4">
         <Logo />
         <ThemeSwitcher />
       </div>
     </header>
     <main class="overflow-y-auto">
-      <div id="grid" class="max-w-[96rem] mx-auto px-4 py-8">
+      <div id="grid" class="mx-auto max-w-[96rem] px-4 py-8">
         {allSnippets.map((s) => <Card snippet={s} />)}
       </div>
     </main>

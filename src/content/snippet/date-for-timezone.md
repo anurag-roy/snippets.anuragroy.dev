@@ -6,30 +6,34 @@ tags: ['TypeScript', 'Intl', 'Date', 'Timezone']
 Convert a timestamp in millis to a particular timezone using JavaScript's `Intl`.
 
 ```typescript
-const getDateForTimeZone = (millis: number, tz: string, locale = 'en-IN'): string => {
-    const dateFormatter = new Intl.DateTimeFormat(locale, {
-        timeZone: tz,
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
-    });
+const getDateForTimeZone = (
+  millis: number,
+  tz: string,
+  locale = 'en-IN'
+): string => {
+  const dateFormatter = new Intl.DateTimeFormat(locale, {
+    timeZone: tz,
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
 
-    const timeFormatter = new Intl.DateTimeFormat(locale, {
-        timeZone: tz,
-        timeStyle: 'short',
-    });
+  const timeFormatter = new Intl.DateTimeFormat(locale, {
+    timeZone: tz,
+    timeStyle: 'short',
+  });
 
-    const timezoneFormatter = new Intl.DateTimeFormat(locale, {
-        timeZone: tz,
-        timeZoneName: 'long',
-    });
+  const timezoneFormatter = new Intl.DateTimeFormat(locale, {
+    timeZone: tz,
+    timeZoneName: 'long',
+  });
 
-    return [
-        `${dateFormatter.format(millis)}`,
-        `${timeFormatter.format(millis).toUpperCase()}`,
-        `${timezoneFormatter.formatToParts(millis).find(p => p.type === 'timeZoneName')?.value || ''}`
-    ].join(' ');
-}
+  return [
+    `${dateFormatter.format(millis)}`,
+    `${timeFormatter.format(millis).toUpperCase()}`,
+    `${timezoneFormatter.formatToParts(millis).find((p) => p.type === 'timeZoneName')?.value || ''}`,
+  ].join(' ');
+};
 ```
 
 #### Example usage and outputs:
@@ -43,5 +47,4 @@ getDateForTimeZone(1690113193308, 'America/Chicago', 'en-US');
 
 getDateForTimeZone(1690113193308, 'Europe/Paris', 'fr-FR');
 // 23 juil. 2023 13:53 heure d’été d’Europe centrale
-
 ```

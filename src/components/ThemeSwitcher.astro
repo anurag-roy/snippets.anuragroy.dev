@@ -8,7 +8,7 @@
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    class="absolute pointer-events-none cursor-auto w-6 h-6 left-2 top-1/2 -translate-y-1/2 dark:hidden"
+    class="pointer-events-none absolute left-2 top-1/2 h-6 w-6 -translate-y-1/2 cursor-auto dark:hidden"
   >
     <path
       d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
@@ -26,7 +26,7 @@
     aria-hidden="true"
     viewBox="0 0 24 24"
     fill="none"
-    class="absolute pointer-events-none cursor-auto w-6 h-6 left-2 top-1/2 -translate-y-1/2 hidden dark:block"
+    class="pointer-events-none absolute left-2 top-1/2 hidden h-6 w-6 -translate-y-1/2 cursor-auto dark:block"
   >
     <path
       fill-rule="evenodd"
@@ -51,7 +51,7 @@
   <!-- Caret Icon -->
   <svg
     aria-hidden="true"
-    class="absolute pointer-events-none cursor-auto w-6 h-6 text-zinc-400 right-2 top-1/2 -translate-y-1/2"
+    class="pointer-events-none absolute right-2 top-1/2 h-6 w-6 -translate-y-1/2 cursor-auto text-zinc-400"
     fill="none"
   >
     <path
@@ -66,7 +66,7 @@
   <select
     id="theme-selector"
     name="theme-selector"
-    class="appearance-none cursor-pointer bg-zinc-50 text-left ring-1 ring-zinc-900/10 rounded-lg shadow-sm py-2 px-10 text-zinc-700 font-medium dark:bg-zinc-800 dark:ring-zinc-700 dark:text-zinc-200"
+    class="cursor-pointer appearance-none rounded-lg bg-zinc-50 px-10 py-2 text-left font-medium text-zinc-700 shadow-sm ring-1 ring-zinc-900/10 dark:bg-zinc-800 dark:text-zinc-200 dark:ring-zinc-700"
   >
     <option selected value="auto">Auto</option>
     <option value="light">Light</option>
@@ -97,14 +97,12 @@
         localStorage.removeItem('theme-preference');
       }
     }
-    //@ts-ignore setTheme is a global function
-    setTheme();
+    window.setTheme();
   });
 
   window
     .matchMedia('(prefers-color-scheme: dark)')
     .addEventListener('change', () => {
-      //@ts-ignore
-      setTheme();
+      window.setTheme();
     });
 </script>

@@ -10,7 +10,11 @@ import { createWriteStream } from 'node:fs';
 import { Readable } from 'node:stream';
 import { finished } from 'node:stream/promises';
 
-export const downloadFile = async (url: string, fileName: string, encoding: string) => {
+export const downloadFile = async (
+  url: string,
+  fileName: string,
+  encoding: string
+) => {
   const writeStream = createWriteStream(fileName, { encoding });
   // Use body since it is a readable stream
   console.log('Starting File download...');
