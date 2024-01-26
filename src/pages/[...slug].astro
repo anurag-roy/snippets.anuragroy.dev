@@ -2,8 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import '../index.css';
 import Chip from '../components/Chip.astro';
-import Logo from '../components/Logo.astro';
-import ThemeSwitcher from '../components/ThemeSwitcher.astro';
+import Header from '../components/Header.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
@@ -23,14 +22,7 @@ const { Content } = await entry.render();
 ---
 
 <BaseLayout title={entry.data.title}>
-  <header
-    class="border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-900"
-  >
-    <div class="mx-auto flex max-w-[96rem] items-center justify-between py-4">
-      <Logo />
-      <ThemeSwitcher />
-    </div>
-  </header>
+  <Header />
   <main class="w-full overflow-y-auto bg-white p-4 py-8 dark:bg-zinc-900">
     <article
       class="prose mx-auto max-w-3xl dark:prose-invert prose-pre:relative"

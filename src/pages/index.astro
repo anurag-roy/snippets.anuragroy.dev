@@ -3,21 +3,13 @@ import { getCollection } from 'astro:content';
 import '../index.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
-import Logo from '../components/Logo.astro';
-import ThemeSwitcher from '../components/ThemeSwitcher.astro';
+import Header from '../components/Header.astro';
 
 const allSnippets = await getCollection('snippet');
 ---
 
 <BaseLayout title="Snippets">
-  <header
-    class="border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-900"
-  >
-    <div class="mx-auto flex max-w-[96rem] items-center justify-between py-4">
-      <Logo />
-      <ThemeSwitcher />
-    </div>
-  </header>
+  <Header />
   <main class="overflow-y-auto">
     <div id="grid" class="mx-auto max-w-[96rem] px-4 py-8">
       {allSnippets.map((s) => <Card snippet={s} />)}

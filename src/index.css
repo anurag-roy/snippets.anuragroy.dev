@@ -23,8 +23,8 @@
 }
 
 .dark {
-  color-scheme: dark;
   /* Dark Theme */
+  color-scheme: dark;
   --astro-code-color-text: #c9d1d9;
   --astro-code-color-background: #161b22;
   --astro-code-token-constant: #79c0ff;
@@ -40,4 +40,8 @@
 
 * {
   @apply outline-pink-600 dark:outline-yellow-400;
+}
+
+main {
+  scrollbar-gutter: stable both-edges;
 }

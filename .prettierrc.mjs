@@ -6,13 +6,13 @@ export default {
   semi: true,
   useTabs: false,
   tabWidth: 2,
-  trailingComma: "es5",
-  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  trailingComma: 'es5',
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
   overrides: [
     {
-      files: "*.astro",
+      files: '*.astro',
       options: {
-        parser: "astro",
+        parser: 'astro',
       },
     },
   ],
