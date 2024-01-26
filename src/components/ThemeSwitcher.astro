@@ -75,13 +75,17 @@
 </div>
 
 <script>
+  declare global {
+    interface Window {
+      setTheme: () => void;
+    }
+  }
+
   const themeSelector = document.getElementById(
     'theme-selector'
   ) as HTMLSelectElement;
 
-  if (localStorage && localStorage.getItem('theme-preference')) {
-    themeSelector.value = localStorage.getItem('theme-preference')!;
-  }
+  themeSelector.value = localStorage.getItem('theme-preference') || 'auto';
 
   themeSelector.addEventListener('change', (event) => {
     switch ((event.target as HTMLInputElement).value) {

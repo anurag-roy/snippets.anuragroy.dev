@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import '../index.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
 import Logo from '../components/Logo.astro';
 import ThemeSwitcher from '../components/ThemeSwitcher.astro';
@@ -8,47 +9,21 @@ import ThemeSwitcher from '../components/ThemeSwitcher.astro';
 const allSnippets = await getCollection('snippet');
 ---
 
-<html lang="en" class="h-full">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Snippets</title>
-    <script>
-      declare global {
-        interface Window {
-          setTheme: () => void;
-        }
-      }
-
-      window.setTheme = () => {
-        const theme =
-          localStorage.getItem('theme-preference') ||
-          window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light';
-        document.documentElement.classList.toggle('dark', theme === 'dark');
-      };
-      window.setTheme();
-    </script>
-  </head>
-  <body class="grid h-full grid-rows-[auto,1fr] bg-zinc-100 dark:bg-zinc-950">
-    <header
-      class="border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-900"
-    >
-      <div class="mx-auto flex max-w-[96rem] items-center justify-between py-4">
-        <Logo />
-        <ThemeSwitcher />
-      </div>
-    </header>
-    <main class="overflow-y-auto">
-      <div id="grid" class="mx-auto max-w-[96rem] px-4 py-8">
-        {allSnippets.map((s) => <Card snippet={s} />)}
-      </div>
-    </main>
-  </body>
-</html>
+<BaseLayout title="Snippets">
+  <header
+    class="border-b border-zinc-200 bg-white px-4 dark:border-zinc-800 dark:bg-zinc-900"
+  >
+    <div class="mx-auto flex max-w-[96rem] items-center justify-between py-4">
+      <Logo />
+      <ThemeSwitcher />
+    </div>
+  </header>
+  <main class="overflow-y-auto">
+    <div id="grid" class="mx-auto max-w-[96rem] px-4 py-8">
+      {allSnippets.map((s) => <Card snippet={s} />)}
+    </div>
+  </main>
+</BaseLayout>
 
 <style is:global>
   pre {
