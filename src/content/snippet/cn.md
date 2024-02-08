@@ -1,6 +1,6 @@
 ---
 title: 'Merge classNames helper'
-tags: ['TypeScript', 'Intl', 'Date', 'Ordinal']
+tags: ['React', 'CSS', 'clsx']
 ---
 
 #### Simple version
